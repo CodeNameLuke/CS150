@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stdlib.h>
 
-
+//simple Calculator Application.
 
 
 Calculator::Calculator()
