@@ -1,5 +1,3 @@
-# CS150-Calculator
-Simple Calculator Class
+CS 150 Class Code and Projects.
 
-First Code Put On GitHub... Check it out!
 
