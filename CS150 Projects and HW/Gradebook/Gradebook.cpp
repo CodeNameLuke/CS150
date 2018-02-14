@@ -68,6 +68,16 @@ void Gradebook::calcClassAverage() const
 		string check = "";
 		cin >> grade;
 		
+		if (!cin) // or if(cin.fail())
+		{
+			// user didn't input a number
+			cin.clear(); // reset failbit
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //skip bad input
+			gradeCounter--; 
+
+		}
+		
+		//Converts inputted int to string for size checking.
 		check = to_string(grade);
 
 		if (check.size() > 2) {
@@ -78,6 +88,7 @@ void Gradebook::calcClassAverage() const
 		}
 		else {
 
+			//Converts string back to int for average checking.
 			grade = atoi(check.c_str());
 
 			total = total + grade;
