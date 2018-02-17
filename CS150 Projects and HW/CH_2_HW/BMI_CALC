@@ -1,0 +1,54 @@
+//
+//  main.cpp
+//  Chapter 1 Homework
+//
+//  Created by Luke Silva on 1/29/18.
+//  Copyright © 2018 Luke Silva. All rights reserved.
+//
+
+#include <iostream>
+#include <cmath>
+#include <string>
+
+
+
+
+using namespace std;
+
+
+int main(int argc, const char * argv[]) {
+    
+    double feet;
+    double inches;
+    double weight;
+    double bmi;
+    double totalInches;
+    
+    
+    cout << "Enter height" << endl;
+    
+    cout << "Feet:" << endl;
+    cin >> feet;
+    
+    cout << "Inches:" << endl;
+    cin >> inches;
+    
+    cout << "Enter weight (in pounds) " << endl;
+    cin >> weight;
+    
+    totalInches = (feet * 12) + inches;
+    bmi = (weight * 703) / (totalInches * totalInches);
+    
+    cout << "BMI: "<< bmi << endl;
+    
+    cout<< "------------------------------------" << endl;
+    cout<< "BMI VALUES" << endl;
+    cout<< "Underweight: less than 18.5" << endl;
+    cout<< "Normal: between 18.5 and 24.9" << endl;
+    cout<< "Overweight: between 25 and 29.9" << endl;
+    cout<< "Obese: 30 or greater" << endl;
+    cout<< "------------------------------------" << endl;
+    
+    
+    return 0;
+}
