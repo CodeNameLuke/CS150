@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "Gradebook.h"
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ Gradebook::Gradebook(std::string name)
 }
 
 void Gradebook::setCourseName(std::string name)
-{	
+{
 
 	//Names can be at most 25 characters long. 
 
@@ -30,7 +31,7 @@ void Gradebook::setCourseName(std::string name)
 		//Selects first 25 characters
 		courseName = name.substr(0, 25);
 		cerr << "Name \"" << name << "\" exceeds maximum length (25). \n"
-			 << "Limiting courseName to first 25 characters. \n" << endl;
+			<< "Limiting courseName to first 25 characters. \n" << endl;
 
 	}
 
@@ -39,14 +40,14 @@ void Gradebook::setCourseName(std::string name)
 
 std::string Gradebook::getCourseName() const
 {
-	
+
 	return courseName;
 
 }
 
 void Gradebook::displayMessage() const
 {
-	
+
 	cout << "Welcome to the grade book for: \n>>" << getCourseName() << "<<" << endl;
 
 }
@@ -55,7 +56,7 @@ void Gradebook::calcClassAverage() const
 {
 	int total = 0;
 	int gradeCounter = 0;
-	int numberOfGrades;
+	int numberOfGrades = 0;
 
 	cout << "Enter Number Of Grades: \n" << ">";
 	cin >> numberOfGrades;
@@ -63,26 +64,26 @@ void Gradebook::calcClassAverage() const
 	while (gradeCounter < numberOfGrades) {
 
 		cout << "Enter Number Grade: " << ">";
-		
+
 		int grade = 0;
 		string check = "";
 		cin >> grade;
-		
+
 		if (!cin) // or if(cin.fail())
 		{
 			// user didn't input a number
 			cin.clear(); // reset failbit
 			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //skip bad input
-			gradeCounter--; 
+			gradeCounter--;
 
 		}
-		
+
 		//Converts inputted int to string for size checking.
 		check = to_string(grade);
 
 		if (check.size() > 2) {
 
-			
+
 			cerr << "ERROR: Grade Not Accepted. Enter A 2-Bit Integer" << endl;
 
 		}
@@ -97,15 +98,20 @@ void Gradebook::calcClassAverage() const
 
 		}
 
+	}
 
+	if (gradeCounter == 0) {
+
+		cout << "No Grades were entered." << endl;
 
 
 	}
+	else {
 
-	double average = total / numberOfGrades;
+		double average = static_cast<double>(total) / numberOfGrades;
 
-	cout << "CLASS AVERAGE: " << average << endl;
+		cout << "CLASS AVERAGE: " << setprecision(2) << fixed << average << endl;
 
-	
+	}
 
 }
