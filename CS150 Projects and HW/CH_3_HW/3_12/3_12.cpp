@@ -3,7 +3,7 @@
 
 Date::Date(int m, int d, int y)
 {
-	month = m;
+	setMonth(m);
 	day = d;
 	year = y;
 
@@ -11,8 +11,15 @@ Date::Date(int m, int d, int y)
 
 void Date::setMonth(int m)
 {
+	if( m <= 1 && m <= 12){
+		
+		month = m;		
 	
-	month = m;
+	}else{
+		
+		month = 1;		
+
+	{
 
 }
 
