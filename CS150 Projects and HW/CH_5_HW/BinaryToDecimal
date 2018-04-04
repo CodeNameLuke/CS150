@@ -1,0 +1,38 @@
+#include "stdafx.h"
+#include "iostream"
+
+
+using namespace std;
+
+
+int main() {
+
+
+
+
+	int binary = 10111;
+	int d = 0;
+	int dN = 0;
+
+
+	for (int i = 0; binary > 0; i++) {
+
+		d = binary % 10;
+		dN += d * pow(2, i);
+		binary = binary / 10;
+
+
+		
+	}
+
+
+	cout << dN << endl;
+
+
+
+
+
+
+	return 0;
+
+}
