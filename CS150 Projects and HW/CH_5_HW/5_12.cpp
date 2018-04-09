@@ -10,11 +10,16 @@ int main() {
 
 	for (int i = 1; i <= 15; i += 2) {
 
+		cout << product << " * " << i << endl;
+
 		product = product * i;
+
+		cout << "= " << product << "\n\n";
+
 
 	}
 
-	cout << product << endl;
+	cout << "Total = " << product << "\n\n";
 
 
 
