@@ -1,6 +1,3 @@
-// hw4.cpp : Defines the entry point for the console application.
-//
-
 #include "stdafx.h"
 #include "iostream"
 
@@ -14,12 +11,36 @@ int main()
 
 	while (s1 != sentinel) {
 
-		cout << "Enter 3 Side Lengths To Determine Whether A Triangle Can Be Formed (Enter -1 to exit):\n>";
+		cout << "Enter 3 Non-Zero Side Lengths To Determine Whether A Triangle Can Be Formed (Enter -1 to exit):\n>";
 		cin >> s1;
+
+		while (s1 == 0) {
+			
+			cout << "Sidelength Cannot Be 0. Try Again.\n>";
+			cin >> s1;
+
+		}
 
 		if (s1 != sentinel) {
 
-			cin >> s2 >> s3;
+			cout << ">";
+			cin >> s2;
+
+			while (s2 == 0) {
+
+				cout << "Sidelength Cannot Be 0. Try Again.\n>";
+				cin >> s2;
+
+			}
+			cout << ">";
+			cin >> s3;
+
+			while (s3 == 0) {
+
+				cout << "Sidelength Cannot Be 0. Try Again.\n>";
+				cin >> s3;
+
+			}
 
 			if (((s1 + s2) > s3) && ((s2 + s3) > s1) && ((s1 + s3) > s2)) {
 
@@ -30,12 +51,9 @@ int main()
 
 				cout << "A triangle cannot be formed." << endl;
 
-
 			}
 		}
 	}
 
-
-    return 0;
+	return 0;
 }
-
