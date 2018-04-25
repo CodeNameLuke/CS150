@@ -1,6 +1,3 @@
-// DieRoller.cpp : Defines the entry point for the console application.
-//
-
 #include "stdafx.h"
 #include "iostream"
 #include "iomanip"
@@ -13,56 +10,56 @@ unsigned int rollDice();
 
 int main()
 {
-	
+
 	unsigned int myPoint = 0;
 
 
 
-	enum Status { CONTINUE, WON, LOST };
+	enum class Status { CONTINUE, WON, LOST };
 
 	srand(static_cast<unsigned int>(time(0)));
-	
-	Status gameStatus = CONTINUE;
-	
+
+	Status gameStatus = Status::CONTINUE;
+
 	unsigned int sum = rollDice();
 
 	switch (sum)
 	{
-		case 7: 
-		case 11:
-			gameStatus = WON;
-			break;
-		case 2: 
-		case 3:
-		case 12:
-			gameStatus = LOST;
-			break;
-		default:
-			gameStatus = CONTINUE;
-			myPoint = sum;
-			cout << "Get " << sum << " to score!" << endl;
-			break;
+	case 7:
+	case 11:
+		gameStatus = Status::WON;
+		break;
+	case 2:
+	case 3:
+	case 12:
+		gameStatus = Status::LOST;
+		break;
+	default:
+		gameStatus = Status::CONTINUE;
+		myPoint = sum;
+		cout << "Get " << sum << " to score!" << endl;
+		break;
 	}
 
-	while (CONTINUE == gameStatus) {
-		
+	while (Status::CONTINUE == gameStatus) {
+
 		sum = rollDice();
 
 		if (sum == myPoint) {
 
-			gameStatus = WON;
+			gameStatus = Status::WON;
 
 		}
 		else {
 			if (sum == 7) {
-				
-				gameStatus = LOST;
+
+				gameStatus = Status::LOST;
 
 			}
 		}
 	}
 
-	if (WON == gameStatus) {
+	if (Status::WON == gameStatus) {
 
 		cout << "Player Wins." << endl;
 
@@ -73,11 +70,11 @@ int main()
 
 	}
 
-    return 0;
+	return 0;
 }
 
 unsigned int rollDice() {
-	
+
 
 
 	unsigned int die1 = 1 + rand() % 6;
