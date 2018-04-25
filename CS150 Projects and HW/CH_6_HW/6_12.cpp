@@ -10,7 +10,6 @@ using namespace std;
 
 int main() {
 
-	double cost = calculateCharge(4.0);
 	double hours1 = 0.0, hours2 = 0.0, hours3 = 0.0, totalHours = 0.0;
 	double cost1 = 0.0, cost2 = 0.0, cost3 = 0.0, totalCost = 0.0;
 
