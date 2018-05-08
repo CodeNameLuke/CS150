@@ -4,24 +4,34 @@
 
 using namespace std;
 
-void towerOfHanoi(int numberToBeMoved, char initialPeg, char finalPeg, char tempPeg);
+void towerOfHanoi(int, char, char, char);
 
 
 int main() {
 
+	towerOfHanoi(3, 'A', 'B', 'C');
 
 
 }
 
-void towerOfHanoi(int n, char peg1, char peg2, char peg3)
+void towerOfHanoi(int n, char source, char finalPeg, char tempPeg)
 {
 
-	while (n != 0)
+	if (n == 1) {
 
-		towerOfHanoi(n - 1, peg1, peg3, peg2);
+		cout << "Move " << source << " To " << finalPeg << endl;
 
-		towerOfHanoi(n - 1, );
+
+	}
+	else {
+
+		towerOfHanoi(n - 1, source, tempPeg, finalPeg);
+		cout << "Move " << source << " To " << finalPeg << endl;
+
+		towerOfHanoi(n - 1, tempPeg, finalPeg, source);
+
 
 	}
 
 }
+
